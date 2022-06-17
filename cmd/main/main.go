@@ -8,5 +8,5 @@ import (
 func main() {
 	r := echo.New()
 	routes.CreateCitiesRouters(r)
-	r.Start(PORT)
+	r.Start(":8080")
 }
