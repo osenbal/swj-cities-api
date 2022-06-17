@@ -10,5 +10,5 @@ import (
 func main() {
 	r := echo.New()
 	routes.CreateCitiesRouters(r)
-	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	http.ListenAndServe(":"+os.Getenv("PORT"), r)
 }
