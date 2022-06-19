@@ -28,8 +28,13 @@ func GetCityById(c echo.Context) error {
 }
 
 func CreateCity(c echo.Context) error {
-	city, _ := repositories.InsertData(c)
-	return c.JSON(http.StatusOK, city)
+	city, res := repositories.InsertData(c)
+	response := &Response{
+		Code:    res.Code,
+		Message: res.Message,
+		Data:    city,
+	}
+	return c.JSON(http.StatusOK, response)
 }
 
 func UpdateCity(c echo.Context) error {

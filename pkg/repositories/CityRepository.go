@@ -37,7 +37,7 @@ func GetCityById(c echo.Context) (*models.City, *echo.HTTPError) {
 	return city, echo.NewHTTPError(http.StatusOK)
 }
 
-func InsertData(c echo.Context) (*models.City, error) {
+func InsertData(c echo.Context) (*models.City, *echo.HTTPError) {
 	newCity := &models.City{}
 	defer c.Request().Body.Close()
 
@@ -47,7 +47,10 @@ func InsertData(c echo.Context) (*models.City, error) {
 		return nil, echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}
 
-	city, _ := newCity.CreateCity()
+	city, db := newCity.CreateCity()
+	if db.Error != nil {
+		return nil, echo.NewHTTPError(http.StatusBadRequest)
+	}
 	return city, echo.NewHTTPError(http.StatusOK)
 }
 

@@ -1,8 +1,11 @@
 package config
 
 var Config = map[string]string{
-	"DB_DIALECT":  "mysql",
-	"DB_USER":     "root",
-	"DB_PASSWORD": "",
+	"MODE":        "production",
+	"DB_DIALECT":  "postgres",
+	"DB_USER":     "postgres",
+	"DB_PASSWORD": "alumni010",
 	"DB_NAME":     "swj-cities-api",
+	"DB_HOST":     "localhost",
+	"DB_PORT":     "5432",
 }
