@@ -15,7 +15,7 @@ var (
 func Connect() {
 	var dsn string
 
-	if config.Config["DB_DIALECT"] == "production" {
+	if config.Config["MODE"] == "production" {
 		dsn = os.Getenv("DATABASE_URL")
 	} else if config.Config["MODE"] == "local" {
 		if config.Config["DB_DIALECT"] == "postgres" {
