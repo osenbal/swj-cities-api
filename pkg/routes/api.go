@@ -9,7 +9,7 @@ import (
 // API Lists
 var CreateCitiesRouters = func() *echo.Echo {
 	route := echo.New()
-	route.GET("/api", func(context echo.Context) error {
+	route.GET("/", func(context echo.Context) error {
 		return context.JSON(http.StatusOK, "Welcome to cities api (kelompok 9)")
 	})
 	route.GET("/api/cities", controllers.GetAllCity)
