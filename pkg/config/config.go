@@ -1,6 +1,6 @@
 package config
 
-const MODE = "production"
+const MODE = "local"
 const DB_ENGINE = "postgres"
 const DB_USER = "postgres"
 const DB_PASSWORD = "alumni010"
