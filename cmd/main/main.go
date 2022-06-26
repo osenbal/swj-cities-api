@@ -11,16 +11,12 @@ func main() {
 
 	e := routes.CreateCitiesRouters()
 
-	if value, ok := os.LookupEnv("PORT"); ok {
-		println(value)
+	if _, ok := os.LookupEnv("PORT"); ok {
+		// Deployment
 		http.ListenAndServe(":"+os.Getenv("PORT"), e)
 	} else {
+		// Local
 		e.Start(":8080")
 	}
 
-	// if err != nil {
-	// 	fmt.Println("SERVER RUNNING ON LOCAL")
-	// }
-
-	//local
 }
